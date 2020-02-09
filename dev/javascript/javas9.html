@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>random</title>
+    </head>
+    <body>
+        <p>
+            enter a number
+        </p>
+        <p>
+            <input type = "text" id = "a" placeholder = "number">
+        </p>
+        <button id = "z">click!!!</button>
+        <script type = "text/javascript">
+        document.getElementById("z").onclick = function(){
+        var number = Math.random();
+        var number1 = number;
+        number = number * 6;
+        number = Math.floor(number);
+        if(document.getElementById("a").value == number1){
+            alert("right")
+        }
+        else{
+            alert("not right, the number was " + number + "actual number was " + number1)
+        }
+        }
+        </script>
+    </body>
+</html>

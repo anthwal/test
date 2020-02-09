@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>oijihoi</title>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
+        <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+        <style>
+            #a{
+                width: 200px;
+                height: 200px;
+                background-color: aqua;
+            }
+            #b{
+                width: 100px;
+                height: 100px;
+                background-color: cadetblue;
+            }
+            .c{
+                float: left;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="a" class="c"></div>
+        <div id="b" class="c"></div>
+        <script type="text/javascript">
+            $("#b").draggable()
+            $("#a").droppable({
+                drop: function(event,ui){
+                    alert("dropped");
+                    console.log(event)
+                }
+            })
+        </script>
+    </body>
+</html>

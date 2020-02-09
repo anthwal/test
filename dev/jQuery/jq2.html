@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>d</title>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <style>
+            #a{
+                width: 400px;
+                height: 400px;
+                border: 10px blue solid;
+                background-color: chartreuse;
+            }
+            #p{
+                height: 300px;
+                width: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="a"></div>
+        <p></p>
+        <iframe id = "p" src="https://hub.packtpub.com/installing-jquery/"></iframe>
+        <script type="text/javascript">
+            $("#a").click(function(){
+                $("#a").css("border", "29 yellow dashed");
+                $("p").html("content changed you idiot");
+                alert($("p").html());
+            })
+            $("#a").hover(function(){
+                $("#a").css("background-color","beige");
+                $("p").html("mouse is hovering over the shape");
+            })
+            $("iframe").hover(function(){
+                $("iframe").attr("src","https://contribute.geeksforgeeks.org/guide-to-write-an-article/");
+            })
+        </script>
+    </body>
+</html>

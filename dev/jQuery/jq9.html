@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+        <script src="jquery-ui/jquery-ui.js"></script>
+        <style>
+            #a{
+                background-color: palegreen;
+            }
+            #b{
+                background-color: rebeccapurple;
+            }
+            .c{
+                margin: 30px;
+                float: left;
+                width: 200px;
+                height: 200px;
+            }
+            #d{
+                background-color: saddlebrown;
+            }
+            #e{
+                background-color: seagreen;
+                color: skyblue;
+            }
+            #f{
+                background-color: teal;
+            }
+            #g{
+                background-color: turquoise;
+            }
+            #h{
+                background-color: violet;
+            }
+            #i{
+                background-color: yellowgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="a" class="c"></div>
+        <div id="b" class="c"></div>
+        <div id="d" class="c"></div>
+        <div id="e" class="c">
+            <span>
+                in the box
+            </span>
+        </div>
+        <div id="f" class="c"></div>
+        <div id="g" class="c"></div>
+        <div id="h" class="c"></div>
+        <div id="i" class="c"></div>
+        <script type="text/javascript">
+            $("#a").draggable({axis:"y"})
+            $("#b").draggable({axis:"x"})
+            $("#d").resizable()
+            $("span").draggable({containment: "parent"})
+            $("#f").resizable({grid:20})
+            $(function(){
+                $("#g").resizable({
+                    alsoResize: "#h"
+                })
+                $("#h").resizable();
+            })
+            $("#i").resizable({
+                resize: function(event,ui){
+                    if($("#i").width()>500){
+                        alert("bobo")
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

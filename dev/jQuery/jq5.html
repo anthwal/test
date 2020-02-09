@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>tr</title>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <style>
+            .p{
+                width: 300px;
+                height: 300px;
+                background-color: indianred;
+                border-radius: 50%;
+                float: left;
+                margin: 30px;
+            }
+            #l{
+               text-align: center;
+               padding-top: 100px;
+               font-size: 30px;            }
+            #j{
+                position: relative;
+                margin-top: 100px;
+                margin-left: 100px;
+                width: 100px;
+                height: 100px;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="p">
+            <p id="l">some text</p>
+        </div>
+        <div class="p">
+            <img  id = "j" src="C:\Users\ARUN ANTHWAL\Downloads\71695063_2458668100835303_4333138676109279232_n.jpg">
+        </div>
+        <script type="text/javascript">
+            $("body").click(function(){
+                $(".p").animate({
+                    borderRadius: "30%",
+                    marginLeft: "300px",
+                },"slow");
+                $("#l").animate({
+                    fontSize: "3em"
+                },"slow");
+            })
+        </script>
+    </body>
+</html>

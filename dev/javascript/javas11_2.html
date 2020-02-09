@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>qwe</title>
+    </head>
+    <body>
+        <p id = "p">
+            how many fingers?<br>
+            <select id = "l" >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <button id = "b">click</button>
+        </p>
+        <script type="text/javascript">
+        
+        var array = [];
+        var i;
+        document.getElementById("b").onclick = function(){
+            var guess = document.getElementById("l").value;
+            var bool = false;
+            var num = 1;
+            while(bool == false){
+                var number = Math.random();
+                number = number * 6;
+                number = Math.floor(number);
+                if(number == guess){
+                    bool =  true;
+                    alert("found it. it was " + number + ". Guesses = " + num);
+                    
+                }
+                else{
+                    num++;
+                }
+            }
+        }
+        </script>
+    </body>
+</html>

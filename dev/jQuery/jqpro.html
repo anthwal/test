@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>project</title>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
+        <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+        <style>
+
+            body{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                padding: 0;
+                margin: 0;
+            }
+            #header{
+                background-color: #eeeeee;
+                width: 100%;
+                height: 50px;
+                padding: 5px;
+            }
+            #logo{
+                float: left;
+                padding: 4px 5px;
+                font-weight: bold;
+                font-size: 120%;
+            }
+            #button1{
+                width: 260px;
+                margin: 0 auto;
+            }
+            .buttons{
+                float: left;
+                border: 1px gray solid;
+                padding: 5px;
+                border-right: none;
+            }
+            #html{
+                border-bottom-left-radius: 3px;
+                border-top-left-radius: 3px;
+            }
+            #output{
+                border-right: solid gray 1px;
+                border-bottom-right-radius: 3px;
+                border-top-right-radius: 3px;
+            }
+            .active{
+                background-color: lightblue;
+            }
+            .highlighted{
+                background-color: gray;
+            }
+            #htmleditor{
+                resize: none;
+                border-top: none;
+                border-color: gray;
+            }
+            .panel{
+                width: 50%;
+                float: left;
+                border-left: none;
+            }
+            iframe{
+                border: none;
+            }
+            .hidden{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">logo</div>
+            <div id="button1">
+                <div class="buttons active" id="html">HTML</div>
+                <div class="buttons" id="css">CSS</div>
+                <div class="buttons" id="javascript">JavaScript</div>
+                <div class="buttons active" id="output">Output</div>
+            </div>
+        </div>
+        <div id="code">
+            <textarea id="htmleditor" class="panel"><p id="p">helloooo</p></textarea>
+            <textarea id="csseditor" class="panel hidden">p{color: blue;}</textarea>
+            <textarea id="javascripteditor" class="panel hidden">document.getElementById("p").innerHTML = "heya";</textarea>
+            <iframe id="outputeditor" class="panel"></iframe>
+        </div>
+        <script type="text/javascript">
+        function updater(){
+            $("#outputeditor").contents().find("html").html("<html><head><style type = 'text/css'>" + $("#csseditor").val() + "</style></head><body>" + $("#htmleditor").val() + "</body></html>");
+            document.getElementById("outputeditor").contentWindow.eval($("#javascripteditor").val());
+        }
+            $(".buttons").hover(function(){
+                $(this).addClass("highlighted");
+            },
+            function(){
+                $(this).removeClass("highlighted");
+            })
+            $(".buttons").click(function(){
+                $(this).toggleClass("active");
+                $(this).removeClass("highlighted");
+                var editorid = $(this).attr("id") + "editor";
+                $("#" + editorid).toggleClass("hidden");
+                var activepanels = 4 - $(".hidden").length
+                $(".panel").width(($(window).width()/activepanels)-5);
+            })
+            $(".panel").height($(window).height()-$("#header").height()-16);
+            $(".panel").width(($(window).width()/2)-5);
+            updater();
+            $("textarea").on("change keyup paste", function(){
+                updater();
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>pg</title>
+    </head>
+    <body>
+        <input id = "as" type = "text" placeholder="search">
+        <button id = "y">change the text</button>
+        <p id = "r"></p>
+        <script type="text/javascript">
+        document.getElementById("y").onclick = function () {
+            var search = "";
+            search = document.getElementById("as").value;
+            document.getElementById("r").innerHTML=search;
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>
+            random
+        </title>
+        <style>
+            #shapes{
+                height: 300px;
+                width: 400px;
+                background-color: aquamarine;
+                display: none;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <p id = "game">
+            <h2>
+                <b>click on the appearing random shapes as fast as you can.</b>
+            </h2>
+            <p>
+                time taken
+                <span id = "seconds"></span>
+            </p>
+            <b id = "time"></b>
+            <div id = "shapes"></div>
+        </p>
+        
+        <script type = "text/javascript">
+            var start = new Date().getTime();
+            function colorGenerator(){
+                var code = '0123456789ABCDEF'.split('');
+                var hash = '#';
+                for(var i =0;i < 6; i++){
+                    hash += code[Math.floor(Math.random() * 16)];
+                }
+                return hash;
+            }
+            function shapeAppear(){
+                var top = Math.random() * 400;
+                var left = Math.random() * 400;
+                var wid = Math.random() * 400;
+                var hei = Math.random() * 400;
+                var borderRadius = Math.random() * 50;
+                document.getElementById("shapes").style.backgroundColor = colorGenerator();
+                document.getElementById("shapes").style.top = top + "px";
+                document.getElementById("shapes").style.left = left + "px";
+                document.getElementById("shapes").style.width = wid + "px";
+                document.getElementById("shapes").style.height = hei + "px";
+                document.getElementById("shapes").style.borderRadius = borderRadius + "%"
+                document.getElementById("shapes").style.display = "block";
+                start = new Date().getTime();
+            }
+            function appearDelay(){
+                setTimeout(shapeAppear,Math.random() * 3000);
+            }
+            appearDelay();
+            document.getElementById("shapes").onclick = function(){
+                document.getElementById("shapes").style.display = "none";
+                var end = new Date().getTime();
+                var timetook = (end-start)/1000;
+                document.getElementById("seconds").innerHTML = timetook + "s";
+                appearDelay();                
+            }
+        </script>
+    </body>
+</html>

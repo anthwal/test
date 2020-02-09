@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>qwertyui</title>
+    </head>
+    <body>
+        <p>how many fingers?
+            <select id = "r">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <button id = "b">go</button>
+        </p>
+        <script type = "text/javascript">
+        function randomise(correct){
+            var ran = Math.random();
+            ran = ran * 6;
+            ran = Math.floor(ran);
+            if (ran == correct ){
+                return(true);
+            }
+            else{
+                return(false);
+            }
+        }
+        document.getElementById("b").onclick = function(){
+            var digit = document.getElementById("r").value;
+            var bool = false;
+            var guesses = 1;
+            while(bool == false){
+                if (randomise(digit) == true){
+                    bool = true;
+                    alert("right. the number was " + digit + "guesses = " + guesses)
+                }
+                else{
+                    guesses++;
+                }
+            }
+        }
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>cic</title>
+        <style type="text/css">
+        .circle{
+            height: 300px;
+            width: 300px;
+            border-radius:50%;
+            float: left;
+            margin-right: 30px;
+        }
+        #ko{
+            background-color:red;
+        }
+        #gr{
+            background-color: chartreuse;
+        }
+        #p{
+            background-color: aqua;
+        }
+        </style>
+    </head>
+    <body>
+        <div id = "ko" class ="circle"></div>
+        <div id = "gr" class="circle"></div>
+        <div id = "p" class="circle"></div>
+        <script type="text/javascript">
+        document.getElementById("ko").onclick = function () {
+            document.getElementById("ko").style.display="none"
+            
+        }
+        document.getElementById("gr").onclick = function(){
+            document.getElementById("gr").style.display="none"
+        }
+        document.getElementById("p").onclick = function () {
+            document.getElementById("p").style.display="none"
+            
+        }
+        </script>
+    </body>
+</html>
